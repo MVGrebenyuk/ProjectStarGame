@@ -7,7 +7,6 @@ import com.mygdx.game.base.Sprite;
 
 import ru.geekbrains.math.Rect;
 
-//import ru.geekbrains.math.Rect;
 
 public class MainShip extends Sprite {
 
@@ -18,6 +17,7 @@ public class MainShip extends Sprite {
     private Vector2 common;
     private Vector2 c2;
     private Rect worldBounds;
+    private final float BOTTOM = -0.43f;
 
     public MainShip(TextureAtlas ship) {
         super(ship.findRegion("main_ship"));
@@ -40,11 +40,11 @@ public class MainShip extends Sprite {
     @Override
     public void update(float delta) {
         if(touch.x == 0 & touch.y == 0) {
-            pos.set(0, -0.43f);
+            pos.set(0, BOTTOM);
         }
         common.set(touch);
-        if ((common.sub(pos)).len() > V_LEN) {
-            pos.add(v.x*2, 0);
+        if (common.sub(pos).len() > V_LEN) {
+            pos.add(v.x*4, 0);
         } else {
             pos.set(touch);
             v.setZero();

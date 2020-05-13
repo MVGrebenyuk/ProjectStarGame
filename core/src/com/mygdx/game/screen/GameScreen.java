@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.sprite.Background;
 import com.mygdx.game.sprite.MainShip;
+import com.mygdx.game.sprite.Star;
 
 import ru.geekbrains.base.BaseScreen;
 import ru.geekbrains.math.Rect;
@@ -17,14 +18,19 @@ public class GameScreen extends BaseScreen {
     private Background background;
     private MainShip hero;
     private TextureAtlas atlas;
+    private Star[] stars;
 
     @Override
     public void show() {
         super.show();
-        bg = new Texture("textures/bg.png");
+        bg = new Texture("SpaceTexture.jpg");
         background = new Background(bg);
         atlas = new TextureAtlas(Gdx.files.internal("textures/mainAtlas.tpack"));
         hero = new MainShip(atlas);
+        stars = new Star[128];
+        for (int i = 0; i < stars.length; i++) {
+            stars[i] = new Star(atlas);
+        }
     }
 
     @Override
@@ -38,6 +44,9 @@ public class GameScreen extends BaseScreen {
     public void resize(Rect worldBounds) {
         hero.resize(worldBounds);
         background.resize(worldBounds);
+        for (Star star : stars) {
+            star.resize(worldBounds);
+        }
     }
 
     @Override
@@ -64,12 +73,18 @@ public class GameScreen extends BaseScreen {
     }
 
     private void update(float delta) {
+        for (Star star : stars) {
+            star.update(delta);
+        }
         hero.update(delta);
     }
 
     private void draw() {
         batch.begin();
         background.draw(batch);
+        for (Star star : stars) {
+            star.draw(batch);
+        }
         hero.draw(batch);
         batch.end();
     }
