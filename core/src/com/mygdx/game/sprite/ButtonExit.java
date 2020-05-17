@@ -3,8 +3,7 @@ package com.mygdx.game.sprite;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.mygdx.game.base.ScaledButton;
-
-import ru.geekbrains.math.Rect;
+import com.mygdx.game.math.Rect;
 
 public class ButtonExit extends ScaledButton {
 
