@@ -3,8 +3,8 @@ package com.mygdx.game.sprite;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.mygdx.game.base.ScaledButton;
+import com.mygdx.game.math.Rect;
 import com.mygdx.game.screen.GameScreen;
-import ru.geekbrains.math.Rect;
 
 
 public class ButtonPlay extends ScaledButton {
