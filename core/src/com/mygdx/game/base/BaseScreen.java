@@ -1,4 +1,4 @@
-package ru.geekbrains.base;
+package com.mygdx.game.base;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -8,9 +8,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Matrix3;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
-
-import ru.geekbrains.math.MatrixUtils;
-import ru.geekbrains.math.Rect;
+import com.mygdx.game.math.MatrixUtils;
+import com.mygdx.game.math.Rect;
 
 public class BaseScreen implements Screen, InputProcessor {
 
