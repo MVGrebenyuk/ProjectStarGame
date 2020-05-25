@@ -6,27 +6,26 @@ import com.mygdx.game.base.ScaledButton;
 import com.mygdx.game.math.Rect;
 import com.mygdx.game.screen.GameScreen;
 
+public class ButtonNewGame extends ScaledButton {
 
-public class ButtonPlay extends ScaledButton {
+    private GameScreen game;
+    private Game game1;
+    private static final float MARGIN = 0.3f;
 
-    private final Game game;
-
-    private static final float MARGIN = 0.05f;
-
-    public ButtonPlay(TextureAtlas atlas, Game game) {
-        super(atlas.findRegion("btPlay"));
-        this.game = game;
+    public ButtonNewGame(TextureAtlas atlas, Game game) {
+        super(atlas.findRegion("button_new_game"));
+        this.game1 = game;
     }
+
 
     @Override
     public void resize(Rect worldBounds) {
-        setHeightProportion(0.25f);
+        setHeightProportion(0.08f);
         setBottom(worldBounds.getBottom() + MARGIN);
-        setLeft(worldBounds.getLeft() + MARGIN);
     }
 
     @Override
     public void action() {
-        game.setScreen(new GameScreen(game));
+        game1.setScreen(new GameScreen(game1));
     }
 }
